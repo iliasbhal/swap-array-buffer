@@ -1,0 +1,81 @@
+{
+  "version": "1.0.0",
+  "name": "swap-array",
+  "author": "iliasbhal <ilias.bhal@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "tsnode": "ts-node"
+  },
+  "dependencies": {
+    "fs-extra": "^9.1.0",
+    "msgpack-lite": "^0.1.26",
+    "uuid": "^8.3.2"
+  },
+  "peerDependencies": {
+    "@types/fs-extra": "^9.0.10",
+    "@types/msgpack-lite": "^0.1.7",
+    "fs-extra": "^9.1.0",
+    "msgpack-lite": "^0.1.26"
+  },
+  "peerDependenciesMeta": {
+    "fs-extra": {
+      "optional": true
+    },
+    "msgpack-lite": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.10.2",
+    "@types/jest": "^26.0.22",
+    "@types/lodash": "^4.14.168",
+    "@types/uuid": "^8.3.0",
+    "husky": "^6.0.0",
+    "lodash": "^4.17.21",
+    "size-limit": "^4.10.2",
+    "ts-node": "^9.1.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4",
+    "typescript-coverage-report": "^0.5.1"
+  },
+  "optionalDependencies": {},
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "module": "dist/swap-array.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/swap-array.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/swap-array.esm.js",
+      "limit": "10 KB"
+    }
+  ]
+}
