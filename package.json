@@ -13,6 +13,7 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
+    "ts-coverage": "typescript-coverage-report --threshold 80",
     "tsnode": "ts-node"
   },
   "dependencies": {
@@ -58,7 +59,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint"
+      "pre-commit": "yarn lint && yarn test --coverage && yarn ts-coverage"
     }
   },
   "prettier": {
