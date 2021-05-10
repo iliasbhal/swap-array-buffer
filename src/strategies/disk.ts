@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import * as uuid from 'uuid';
 import { SerializationStrategy } from '../lib/SerializationStrategy';
 
-export const DISK = SerializationStrategy.createStrategy(() => {
+export const DISK = SerializationStrategy.createStrategy<any>(() => {
   const folderPath = path.resolve(process.cwd(), '.tmp', uuid.v4());
   fs.ensureDirSync(folderPath);
 

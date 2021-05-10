@@ -1,13 +1,13 @@
 import * as uuid from 'uuid';
 import { SerializationStrategy } from './SerializationStrategy';
-
+import { DISK } from '../strategies';
 export class Serializable<T> {
   id = uuid.v4();
   strategy: SerializationStrategy<T>;
   tmp: unknown;
   value: T | undefined;
 
-  constructor(initalValue: T, strategy: SerializationStrategy<T>) {
+  constructor(initalValue: T, strategy: SerializationStrategy<T> = DISK) {
     this.strategy = strategy;
     this.value = initalValue;
   }

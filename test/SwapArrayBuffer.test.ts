@@ -1,15 +1,15 @@
 import * as _ from 'lodash';
-import { SwapArray } from '../src';
+import SwapArrayBuffer from '../src';
 import { SerializableArray } from '../src/lib/SerializableArray';
 
-describe('SwapArray', () => {
+describe('SwapArrayBuffer', () => {
   it('should be an Array', () => {
-    const arr = new SwapArray();
+    const arr = new SwapArrayBuffer();
     expect(arr).toBeTruthy();
   });
 
   it('should have .push', () => {
-    const arr = new SwapArray();
+    const arr = new SwapArrayBuffer();
 
     for (const id of _.range(0, 101_000)) {
       arr.push(`test-${id}`);
@@ -21,7 +21,7 @@ describe('SwapArray', () => {
   });
 
   it('should have .length should be uptodate when', () => {
-    const arr = new SwapArray();
+    const arr = new SwapArrayBuffer();
     let lengthIsSynced = true;
 
     for (const expectedLength of _.range(0, 101_000)) {
@@ -36,7 +36,7 @@ describe('SwapArray', () => {
   });
 
   it('should have .length in sync when using .push', () => {
-    const arr = new SwapArray();
+    const arr = new SwapArrayBuffer();
     let lengthIsSynced = true;
 
     for (const expectedLength of _.range(0, 101_000)) {
@@ -51,7 +51,7 @@ describe('SwapArray', () => {
 
   describe('Internal', () => {
     it('getSectionIndexOfIndex should return correct index of section', () => {
-      const arr = new SwapArray();
+      const arr = new SwapArrayBuffer();
 
       {
         const sectionIdx = arr.getSectionIdx(0);
@@ -75,7 +75,7 @@ describe('SwapArray', () => {
     });
 
     it('getElementIdx should return correct index', () => {
-      const arr = new SwapArray();
+      const arr = new SwapArrayBuffer();
       {
         const sectionIdx = arr.getSectionIdx(50);
         const indexInSection = arr.getElementIdx(sectionIdx, 50);
@@ -102,7 +102,7 @@ describe('SwapArray', () => {
     });
 
     it('.loadSection should maintain the number of deserialized sections', () => {
-      const arr = new SwapArray();
+      const arr = new SwapArrayBuffer();
 
       const loadedSections: SerializableArray[] = [];
       _.range(0, 1000).forEach((_, i) => {

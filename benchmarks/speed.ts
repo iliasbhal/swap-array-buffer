@@ -1,15 +1,9 @@
-import { SwapArray, Strategies } from '../src';
+import SwapArrayBuffer from '../src';
 
-const swapConfig = {
-  concurrency: 3,
-  swapSize: 400_000,
-  swapStrategy: Strategies.DISK,
-};
-
-const arr2 = new SwapArray(swapConfig);
+const arr = new SwapArrayBuffer();
 createBenchmark('array of 10 (write)', () => {
   return () => {
-    arr2.push(
+    arr.push(
       ["prop2","prop2","prop2","prop2","prop2","prop2","prop2","prop2","prop2","prop2"],
     );
   }
@@ -17,7 +11,7 @@ createBenchmark('array of 10 (write)', () => {
 
 createBenchmark('array of 10 (read)', () => {
   return (i: number) => {
-    arr2.get(i);
+    arr.get(i);
   }
 });
 

@@ -1,4 +1,2 @@
-import * as Strategies from './strategies';
-
-export { SwapArray } from './lib/SwapArray';
-export { Strategies };
+import { SwapArrayBuffer } from './lib/SwapArrayBuffer';
+export default SwapArrayBuffer;

@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import * as _ from 'lodash';
 import { Serializable } from '../src/lib/Serializable';
-import { Strategies } from '../src';
+import * as Strategies from '../src/strategies';
 
 describe('Serialisation Strategies', () => {
   describe('Strategy: None', () => {

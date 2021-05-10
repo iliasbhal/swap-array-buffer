@@ -1,9 +1,8 @@
-import { SerializationStrategy } from './SerializationStrategy';
 import { Serializable } from './Serializable';
 
 export class SerializableArray extends Serializable<unknown[]> {
-  constructor(strategy: SerializationStrategy<unknown[]>) {
-    super([], strategy);
+  constructor() {
+    super([]);
   }
 
   get(index: number) {

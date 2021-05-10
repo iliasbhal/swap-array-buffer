@@ -5,6 +5,7 @@
     "target": "ES5",
     "module": "esnext",
     "isolatedModules": true,
+    "incremental": true,
     "experimentalDecorators": true,
     "lib": ["dom", "esnext"],
     "importHelpers": true,

@@ -1,13 +1,7 @@
 import * as _ from 'lodash';
-import { SwapArray, Strategies } from '../src';
+import SwapArrayBuffer from '../src';
 
-const swapConfig = {
-  concurrency: 3,
-  swapSize: 200_000,
-  swapStrategy: Strategies.DISK,
-};
-
-const arr = new SwapArray(swapConfig);
+const arr = new SwapArrayBuffer();
 
 const LOOPS = 1_000_000;
 const benchmark = createBenchmarkLoop(LOOPS);

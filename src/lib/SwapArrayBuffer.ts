@@ -1,32 +1,26 @@
 import { SerializableArray } from './SerializableArray';
 import { BufferManager } from './BufferManager';
-import { SerializationStrategy } from './SerializationStrategy';
-import { NONE } from '../strategies/none';
 
 interface SwapArrayConfig {
   concurrency: number;
   swapSize: number;
-  swapStrategy: SerializationStrategy<any>;
 }
 
 const DEFAULT_CONFIG: SwapArrayConfig = {
   concurrency: 3,
-  swapStrategy: NONE,
   swapSize: 100_000,
 };
 
-export class SwapArray {
+export class SwapArrayBuffer {
   buffer: BufferManager<SerializableArray>;
   swapSize: number;
-  swapStrategy: SerializationStrategy<unknown[]>;
 
-  constructor(config: Partial<SwapArrayConfig> = DEFAULT_CONFIG) {
+  constructor() {
     this.buffer = new BufferManager<SerializableArray>({
-      concurrency: config.concurrency || DEFAULT_CONFIG.concurrency,
+      concurrency: DEFAULT_CONFIG.concurrency,
     });
 
-    this.swapStrategy = config.swapStrategy || DEFAULT_CONFIG.swapStrategy;
-    this.swapSize = config.swapSize || DEFAULT_CONFIG.swapSize;
+    this.swapSize = DEFAULT_CONFIG.swapSize;
   }
 
   getSectionIdx(elementIdx: number) {
@@ -54,7 +48,7 @@ export class SwapArray {
 
   createSection(forcedSectionIdx?: number) {
     const sectionIdx = forcedSectionIdx || this.buffer.size;
-    const section = new SerializableArray(this.swapStrategy);
+    const section = new SerializableArray();
     this.buffer.register(sectionIdx, section);
 
     return section;

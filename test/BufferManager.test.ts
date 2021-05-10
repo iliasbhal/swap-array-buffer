@@ -1,7 +1,6 @@
 import * as _ from 'lodash';
 import { BufferManager } from '../src/lib/BufferManager';
 import { Serializable } from '../src/lib/Serializable';
-import { Strategies } from '../src';
 
 describe('BufferManager', () => {
   it('should maintain buffer size', () => {
@@ -9,7 +8,7 @@ describe('BufferManager', () => {
     const serializableArr: Serializable<any>[] = [];
 
     _.range(0, 25).forEach(i => {
-      const serialable = new Serializable({}, Strategies.NONE);
+      const serialable = new Serializable({});
       buffer.register(i, serialable);
       serializableArr.push(serialable);
     });
@@ -30,7 +29,7 @@ describe('BufferManager', () => {
     const serializableArr: Serializable<any>[] = [];
 
     _.range(0, 25).forEach(i => {
-      const serialable = new Serializable({}, Strategies.NONE);
+      const serialable = new Serializable({});
       buffer.register(i, serialable);
       serializableArr.push(serialable);
     });

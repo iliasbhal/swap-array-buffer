@@ -1,6 +1,6 @@
 import { SerializationStrategy } from '../lib/SerializationStrategy';
 
-export const NONE = SerializationStrategy.createStrategy(() => {
+export const NONE = SerializationStrategy.createStrategy<any>(() => {
   return {
     serialize: (_, values) => {
       return values;
