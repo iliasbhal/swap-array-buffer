@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "swap-array-buffer",
   "author": "iliasbhal <ilias.bhal@gmail.com>",
   "license": "MIT",
@@ -18,22 +18,7 @@
   },
   "dependencies": {
     "fs-extra": "^9.1.0",
-    "msgpack-lite": "^0.1.26",
     "uuid": "^8.3.2"
-  },
-  "peerDependencies": {
-    "@types/fs-extra": "^9.0.10",
-    "@types/msgpack-lite": "^0.1.7",
-    "fs-extra": "^9.1.0",
-    "msgpack-lite": "^0.1.26"
-  },
-  "peerDependenciesMeta": {
-    "fs-extra": {
-      "optional": true
-    },
-    "msgpack-lite": {
-      "optional": true
-    }
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.10.2",
@@ -45,6 +30,7 @@
     "@types/uuid": "^8.3.0",
     "husky": "^6.0.0",
     "lodash": "^4.17.21",
+    "msgpack-lite": "^0.1.26",
     "size-limit": "^4.10.2",
     "ts-node": "^9.1.1",
     "tsdx": "^0.14.1",
